@@ -1,0 +1,1 @@
+- [Telegram relay access](telegram-relay.md) — bots need explicit source read access and destination publish rights; missing credentials must remain visibly paused.

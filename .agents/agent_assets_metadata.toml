@@ -1,0 +1,100 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "8UzCshhjqg_h2GQRWewE-"
+uri = "file://SignalRelay-project-export.z01"
+type = "unspecified"
+title = "Signal Relay export — part 1 of 7"
+description = "Part of the dependency-inclusive Signal Relay ZIP. Download all seven parts into one folder; keep the filenames unchanged. Secret values and Telegram session data are excluded."
+logical_id = "82ec9605-2332-4e97-b8d3-6920555e45b5"
+content_hash = "sha256:ae94de3a8275ac8b6389760e2448ae400222afc2fbb086ade6310b0e17bf0333"
+size = 94371840
+mtime_ms = 1790039064280
+storage_uri = "gcs://replit-rams-assets-reed/rams/assets/conversation:fa5f429e-1f9d-43aa-8a4d-bf2388188392/82ec9605-2332-4e97-b8d3-6920555e45b5/e7763d9b-38c8-4ced-89fc-5bf4f7dcd57e"
+storage_version_token = "1790039077015270"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "Vty78l9J_XncGN3vh1rf-"
+uri = "file://SignalRelay-project-export.z02"
+type = "unspecified"
+title = "Signal Relay export — part 2 of 7"
+description = "Part of the dependency-inclusive Signal Relay ZIP. Download all seven parts into one folder; keep the filenames unchanged. Secret values and Telegram session data are excluded."
+logical_id = "817e2815-8b28-4206-a019-a8e43a7bbf5f"
+content_hash = "sha256:f99a023926210c66d43b2f14563fc8cc6a1461afe962d5b1263b15b50131d74a"
+size = 94371840
+mtime_ms = 1790039065248
+storage_uri = "gcs://replit-rams-assets-reed/rams/assets/conversation:fa5f429e-1f9d-43aa-8a4d-bf2388188392/817e2815-8b28-4206-a019-a8e43a7bbf5f/ee94c39b-6108-4173-aca4-1a8f63ae417c"
+storage_version_token = "1790039080381048"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "-8S6v4iDJnqYwD0VFVh52"
+uri = "file://SignalRelay-project-export.z03"
+type = "unspecified"
+title = "Signal Relay export — part 3 of 7"
+description = "Part of the dependency-inclusive Signal Relay ZIP. Download all seven parts into one folder; keep the filenames unchanged. Secret values and Telegram session data are excluded."
+logical_id = "3a726eda-d1a7-43cd-804f-ac7bd4ba40f0"
+content_hash = "sha256:5a8e9ec3e6b18a0e543cdf3cad24111620e1a873a3dabd7819fe120391fb4dbe"
+size = 94371840
+mtime_ms = 1790039065972
+storage_uri = "gcs://replit-rams-assets-reed/rams/assets/conversation:fa5f429e-1f9d-43aa-8a4d-bf2388188392/3a726eda-d1a7-43cd-804f-ac7bd4ba40f0/5e19006b-4dbe-4a18-8c04-f6f15672f5fd"
+storage_version_token = "1790039082986986"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "OhqU4jbZSfy_QOINMK6lr"
+uri = "file://SignalRelay-project-export.z04"
+type = "unspecified"
+title = "Signal Relay export — part 4 of 7"
+description = "Part of the dependency-inclusive Signal Relay ZIP. Download all seven parts into one folder; keep the filenames unchanged. Secret values and Telegram session data are excluded."
+logical_id = "12012eea-cc94-43d1-9607-51442c89a918"
+content_hash = "sha256:6722fa40de2c3c6f00c0e0d84ad4c7f452830be10490678b8ab8354384d46723"
+size = 94371840
+mtime_ms = 1790039066864
+storage_uri = "gcs://replit-rams-assets-reed/rams/assets/conversation:fa5f429e-1f9d-43aa-8a4d-bf2388188392/12012eea-cc94-43d1-9607-51442c89a918/0cc6285c-cf3a-4945-90dd-f4b8db539295"
+storage_version_token = "1790039085684650"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "xJsXltZ3dhhnlCIqk8GTX"
+uri = "file://SignalRelay-project-export.z05"
+type = "unspecified"
+title = "Signal Relay export — part 5 of 7"
+description = "Part of the dependency-inclusive Signal Relay ZIP. Download all seven parts into one folder; keep the filenames unchanged. Secret values and Telegram session data are excluded."
+logical_id = "e6e95824-d585-4b79-b851-226687116c41"
+content_hash = "sha256:31a54af3fb57940f88043627bf53132c666e880fd31b87c456a7344ddfaf6457"
+size = 94371840
+mtime_ms = 1790039068008
+storage_uri = "gcs://replit-rams-assets-reed/rams/assets/conversation:fa5f429e-1f9d-43aa-8a4d-bf2388188392/e6e95824-d585-4b79-b851-226687116c41/a43def05-1d0a-447a-9540-411cd6da9534"
+storage_version_token = "1790039088805467"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "3ubSzw5dCdqwRVODh1-q0"
+uri = "file://SignalRelay-project-export.z06"
+type = "unspecified"
+title = "Signal Relay export — part 6 of 7"
+description = "Part of the dependency-inclusive Signal Relay ZIP. Download all seven parts into one folder; keep the filenames unchanged. Secret values and Telegram session data are excluded."
+logical_id = "8eb28515-833d-4174-a3fc-03836d6be90b"
+content_hash = "sha256:0485cf9e6b8f92e928556c3bec56aff9817c443bc40f54863da317bdead46d04"
+size = 94371756
+mtime_ms = 1790039068640
+storage_uri = "gcs://replit-rams-assets-reed/rams/assets/conversation:fa5f429e-1f9d-43aa-8a4d-bf2388188392/8eb28515-833d-4174-a3fc-03836d6be90b/2d97b4a0-33e9-4c2c-9231-3323fa9c36f9"
+storage_version_token = "1790039091233902"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "7rjq2m1Vujw7edNndAxYC"
+uri = "file://SignalRelay-project-export.zip"
+type = "unspecified"
+title = "Signal Relay export — final ZIP part 7 of 7"
+description = "Part of the dependency-inclusive Signal Relay ZIP. Download all seven parts into one folder; keep the filenames unchanged. Secret values and Telegram session data are excluded."
+logical_id = "af7c557e-ba82-46eb-b098-9decf9aa0f9b"
+content_hash = "sha256:31613000db5ee6094461eb9cce30708b996e5a6ca2a2195be6a3ddbf160d89f4"
+size = 34517005
+mtime_ms = 1790039068756
+storage_uri = "gcs://replit-rams-assets-reed/rams/assets/conversation:fa5f429e-1f9d-43aa-8a4d-bf2388188392/af7c557e-ba82-46eb-b098-9decf9aa0f9b/ac1fba7c-f222-4bd0-9d65-f5b2ca416873"
+storage_version_token = "1790039092401909"
+content_type = "application/octet-stream"

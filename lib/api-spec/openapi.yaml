@@ -1,0 +1,353 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: relay
+    description: Signal Relay operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /dashboard:
+    get:
+      operationId: getDashboard
+      tags: [relay]
+      summary: Get relay dashboard summary
+      responses:
+        "200":
+          description: Current relay summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dashboard"
+  /sources:
+    get:
+      operationId: listSources
+      tags: [relay]
+      summary: List configured Telegram sources
+      parameters:
+        - name: group
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Configured sources
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Source"
+    post:
+      operationId: createSource
+      tags: [relay]
+      summary: Add a Telegram source
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SourceInput"
+      responses:
+        "201":
+          description: Source created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Source"
+  /sources/{id}:
+    patch:
+      operationId: updateSource
+      tags: [relay]
+      summary: Update a Telegram source
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SourceUpdate"
+      responses:
+        "200":
+          description: Source updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Source"
+        "404":
+          description: Source not found
+    delete:
+      operationId: deleteSource
+      tags: [relay]
+      summary: Remove a Telegram source
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Source removed
+        "404":
+          description: Source not found
+  /posts:
+    get:
+      operationId: listPosts
+      tags: [relay]
+      summary: List recent relay posts
+      parameters:
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [published, queued, blocked]
+        - name: group
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Recent posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Post"
+  /rules:
+    get:
+      operationId: getRules
+      tags: [relay]
+      summary: Get moderation rules
+      responses:
+        "200":
+          description: Current moderation rules
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rules"
+    patch:
+      operationId: updateRules
+      tags: [relay]
+      summary: Update moderation rules
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RulesUpdate"
+      responses:
+        "200":
+          description: Updated moderation rules
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rules"
+  /connection:
+    get:
+      operationId: getConnection
+      tags: [relay]
+      summary: Get Telegram connection status
+      responses:
+        "200":
+          description: Connection status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Connection"
+  /sync:
+    post:
+      operationId: runSync
+      tags: [relay]
+      summary: Run one relay sync cycle
+      responses:
+        "202":
+          description: Sync queued
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SyncResult"
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    Dashboard:
+      type: object
+      required: [activeSources, postsToday, blockedToday, mediaRate, lastSync]
+      properties:
+        activeSources:
+          type: integer
+        postsToday:
+          type: integer
+        blockedToday:
+          type: integer
+        mediaRate:
+          type: integer
+        lastSync:
+          type: string
+        syncState:
+          type: string
+          enum: [live, paused, needs_setup]
+    Source:
+      type: object
+      required: [id, handle, name, group, enabled, lastSeen, postsToday]
+      properties:
+        id:
+          type: integer
+        handle:
+          type: string
+        name:
+          type: string
+        group:
+          type: string
+        enabled:
+          type: boolean
+        lastSeen:
+          type: string
+        postsToday:
+          type: integer
+    SourceInput:
+      type: object
+      required: [handle, name, group]
+      properties:
+        handle:
+          type: string
+        name:
+          type: string
+        group:
+          type: string
+        enabled:
+          type: boolean
+    SourceUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        group:
+          type: string
+        enabled:
+          type: boolean
+    Post:
+      type: object
+      required: [id, sourceHandle, sourceName, group, headline, body, status, mediaType, receivedAt, translated]
+      properties:
+        id:
+          type: integer
+        sourceHandle:
+          type: string
+        sourceName:
+          type: string
+        group:
+          type: string
+        headline:
+          type: string
+        body:
+          type: string
+        status:
+          type: string
+          enum: [published, queued, blocked]
+        mediaType:
+          type: string
+          enum: [image, video, none]
+        mediaUrl:
+          type: ["string", "null"]
+        receivedAt:
+          type: string
+        translated:
+          type: boolean
+        reason:
+          type: ["string", "null"]
+    Rules:
+      type: object
+      required: [translate, preserveMedia, addSourceLabel, blockAds, blockedKeywords, deliveryChannel]
+      properties:
+        translate:
+          type: boolean
+        preserveMedia:
+          type: boolean
+        addSourceLabel:
+          type: boolean
+        blockAds:
+          type: boolean
+        blockedKeywords:
+          type: array
+          items:
+            type: string
+        deliveryChannel:
+          type: string
+    RulesUpdate:
+      type: object
+      properties:
+        translate:
+          type: boolean
+        preserveMedia:
+          type: boolean
+        addSourceLabel:
+          type: boolean
+        blockAds:
+          type: boolean
+        blockedKeywords:
+          type: array
+          items:
+            type: string
+        deliveryChannel:
+          type: string
+    Connection:
+      type: object
+      required: [status, label, detail]
+      properties:
+        status:
+          type: string
+          enum: [connected, needs_setup, paused, error]
+        label:
+          type: string
+        detail:
+          type: string
+        botUsername:
+          type: ["string", "null"]
+        tokenConfigured:
+          type: boolean
+    SyncResult:
+      type: object
+      required: [queuedAt, accepted, message]
+      properties:
+        queuedAt:
+          type: string
+        accepted:
+          type: boolean
+        message:
+          type: string
+

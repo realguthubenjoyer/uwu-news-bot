@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Signal Relay"
+description = "A focused Telegram news relay dashboard for curating public channels, filtering promotions, preserving media, and publishing translated updates to one destination channel."
+version = "1.0.0"
+id = "artifacts/telegram-news-aggregator"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25724
+
+[services.development]
+run = "pnpm --filter @workspace/telegram-news-aggregator run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/telegram-news-aggregator", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/telegram-news-aggregator/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25724"
+BASE_PATH = "/"
